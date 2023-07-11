@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Petugas\KategoriController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dashboard', function () {
     return view('petugas/dashboard');
 });
+
+Route::get('/kategori', KategoriController::class);
 
