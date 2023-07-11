@@ -47,5 +47,16 @@ class BukuSeeder extends Seeder
             'rak_id' =>1,
             'stok' =>5
         ]);
+
+        Buku::create([
+            'judul' => 'Langit',
+            'slug' => Str::slug('Langit'),
+            'sampul' => 'langit.jpeg',
+            'penulis' => 'Mashan',
+            'penerbit_id' =>2,
+            'kategori_id' =>5,
+            'rak_id' =>1,
+            'stok' =>5
+        ]);
     }
 }
