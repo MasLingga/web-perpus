@@ -12,11 +12,11 @@ class Kategori extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
 
-    public $create, $edit, $nama, $kategori_id;
+    public $create, $delete, $edit, $nama, $kategori_id;
 
     protected $rules = [
 
-        'nama' => 'required|min:5'
+        'nama' => 'required|min:2'
 
     ];
     
@@ -52,6 +52,26 @@ class Kategori extends Component
 
     }
 
+    public function delete($id)
+    {
+        $this->format();
+        
+        $this->delete = true;
+        $this->kategori_id = $id;
+        //dd($id); 
+    }
+
+    public function destroy(ModelsKategori $kategori)
+    {
+        
+        
+        $kategori->delete();
+        session()->flash('sukses', "Data berhasil dihapus");
+        //dd($id);
+        $this->format(); 
+    }
+
+
     public function store()
     {
         $this->validate();
@@ -81,5 +101,6 @@ class Kategori extends Component
         unset($this->create);
         unset($this->nama);
         unset($this->edit);
+        unset($this->delete);
     }
 }
